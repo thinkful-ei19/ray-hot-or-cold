@@ -20,7 +20,7 @@ export default function GameInstruction(props) {
                             props.renderInstruction()
                         }} 
                         className="close" 
-                        href="close"
+                        href="#close"
                     >
                         READY!
                     </a>

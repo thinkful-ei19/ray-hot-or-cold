@@ -9,7 +9,7 @@ export default function Navigation(props) {
                 <li>
                     <a 
                         className="what" 
-                        href="what"
+                        href="#what"
                         onClick={(event) => {
                             event.preventDefault()
                             props.renderInstruction()
@@ -21,7 +21,7 @@ export default function Navigation(props) {
                 <li>
                     <a 
                         className="new" 
-                        href="new"
+                        href="#new"
                         onClick={(event) => {
                             event.preventDefault()
                             props.whenGameRestarts()

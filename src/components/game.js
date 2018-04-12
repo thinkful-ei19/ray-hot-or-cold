@@ -1,9 +1,9 @@
 import React from 'react';
 
 import Header from './header';
-import GuessForm from './guess-form';
-import GuessParagraph from './guess-paragraph';
+import GuessBody from './guess-body';
 import GuessList from './guess-list';
+import GuessCount from './guess-count';
 
 export default class Game extends React.Component {
     constructor(props) {
@@ -16,8 +16,8 @@ export default class Game extends React.Component {
         return (
             <section>
                 <Header />
-                <GuessForm />
-                <GuessParagraph />
+                <GuessBody />
+                <GuessCount count={3} />
                 <GuessList />
             </section>
         );

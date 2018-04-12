@@ -7,8 +7,8 @@ import './guess-body.css';
 export default function GuessBody(props) {
     return (
         <section>
-            <h2 id="feedback">{props.feedback}</h2>
-            <GuessForm />
+            <h2 id="response">{props.response}</h2>
+            <GuessForm  whenUserGuesses={guess => props.whenUserGuesses(guess)} />
         </section>
     );
 }

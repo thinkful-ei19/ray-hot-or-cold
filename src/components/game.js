@@ -11,7 +11,8 @@ export default class Game extends React.Component {
         this.state = {
             guesses: [],
             response: 'Make your Guess',
-            answer: Math.floor(Math.random() * 100)
+            answer: Math.floor((Math.random() * 100) + 1),
+            whatInstruction: false
         };
     }
 
@@ -21,26 +22,62 @@ export default class Game extends React.Component {
             throw new Error('Must enter a valid number');
         }
 
+        const answerDifference = Math.abs(this.state.answer - guess);
+        let response;
 
-
+        if(answerDifference >= 40) {
+            response = 'You are Super Cold';
+        } else if(answerDifference >= 30) {
+            response = 'You are Cold';
+        } else if(answerDifference >= 20) {
+            response = 'You are Warm';
+        } else if(answerDifference >= 15) {
+            response = 'You are Hot!';
+        } else if(answerDifference >= 5) {
+            response = 'You are SUPER HOT!!';
+        } else {
+            response = 'You are CORRECT!!';
+        }
+        
+        this.setState({
+            guesses: [...this.state.guesses, guess],
+            response
+        });
     }
 
     resetGame() {
         this.setState({
             guesses: [],
             response: 'Make your Guess',
-            correctAnswer: Math.floor(Math.random() * 100)
-        })
+            correctAnswer: Math.floor((Math.random() * 100) + 1)
+        });
+    }
+
+    setInstruction() {
+        this.setState({
+            whatInstruction: !this.state.whatInstruction
+        });
     }
 
 
     render() {
+        const guesses = this.state.guesses;
+        const response = this.state.response;
+        const count = guesses.length;
+
         return (
             <section>
-                <Header />
-                <GuessBody />
-                <GuessCount count={3} />
-                <GuessList />
+                <Header 
+                    renderInstruction={() => this.setInstruction()}
+                    whatInstruction = {this.state.whatInstruction}
+                    whenGameRestarts={() => this.resetGame()}
+                />
+                <GuessBody 
+                    response={response}
+                    whenUserGuesses={guess => this.userGuess(guess)}
+                />
+                <GuessCount count={count} />
+                <GuessList guesses={guesses} />
             </section>
         );
     }

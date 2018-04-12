@@ -7,10 +7,28 @@ export default function Navigation(props) {
         <nav>
             <ul className="navigation-bar">
                 <li>
-                    <a className="what" href="#">What?</a>
+                    <a 
+                        className="what" 
+                        href="what"
+                        onClick={(event) => {
+                            event.preventDefault()
+                            props.renderInstruction()
+                        }}
+                    >
+                        What?
+                    </a>
                 </li>
                 <li>
-                    <a className="new" href="#">+ New Game</a>
+                    <a 
+                        className="new" 
+                        href="response"
+                        onClick={(event) => {
+                            event.preventDefault()
+                            props.whenGameRestarts()
+                        }}
+                    >
+                        + New Game
+                    </a>
                 </li>
             </ul>
         </nav>

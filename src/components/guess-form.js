@@ -3,11 +3,17 @@ import React from 'react';
 import './guess-form.css';
 
 export default function GuessForm(props) {
-    return (
-        <form> 
-            {/* <label for="">Guess the number</label> */}
-            <input type="text" className="text" id="userGuess" placeholder="Enter your Guess"></input>
-            <input type="submit" className="button" name="submit" value="Guess Number"></input>
-        </form>
-    );
+        return (
+            <form onSubmit={(event) => {
+                event.preventDefault()
+
+                if(props.whenUserGuesses) {
+                    const inputValue = event.target.userInput.value;
+                    props.whenUserGuesses(inputValue);
+                }
+            }}> 
+                <input type="text" className="text" id="userGuess" name="userInput" placeholder="Enter your Guess"></input>
+                <input type="submit" className="button" name="submit" value="Guess Number"></input>
+            </form>
+        );
 };

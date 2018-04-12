@@ -4,7 +4,7 @@ import './game-instruction.css';
 
 export default function GameInstruction(props) {
     return (
-        <div className="overlay" id="modal">
+        <div className="overlay" id="modal" >
             <div className="content">
                 <h3>What do I do?</h3>
                 <div>
@@ -15,6 +15,7 @@ export default function GameInstruction(props) {
                         <li>3. You will <strong>get feedback</strong> on how close ("hot") or far ("cold") your guess is.</li>
                     </ul>
                     <p>So, Are you ready?</p>
+                    <button>OK!</button>
                 </div>
             </div>
         </div>

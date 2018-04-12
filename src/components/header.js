@@ -8,8 +8,15 @@ import './header.css';
 export default function Header(props) {
     return (
         <header>
-            <Navigation />
-            {/* <GameInstruction /> */}
+            <Navigation 
+                whenGameRestarts={() => props.whenGameRestarts()}
+                renderInstruction={() => props.renderInstruction()}
+            />
+            {props.whatInstruction
+                ?<GameInstruction 
+                    renderInstruction={() => props.renderInstruction()}
+                />
+                : ''}
             <h1>Hot or Cold</h1>
         </header>
     );

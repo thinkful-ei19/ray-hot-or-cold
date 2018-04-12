@@ -12,11 +12,7 @@ export default function Header(props) {
                 whenGameRestarts={() => props.whenGameRestarts()}
                 renderInstruction={() => props.renderInstruction()}
             />
-            {props.whatInstruction
-                ?<GameInstruction 
-                    renderInstruction={() => props.renderInstruction()}
-                />
-                : ''}
+            {props.whatInstruction ? <GameInstruction renderInstruction={() => props.renderInstruction()} /> : ''}
             <h1>Hot or Cold</h1>
         </header>
     );

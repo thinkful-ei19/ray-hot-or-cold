@@ -15,7 +15,7 @@ export default function GameInstruction(props) {
                         <li>3. You will <strong>get feedback</strong> on how close ("hot") or far ("cold") your guess is.</li>
                     </ul>
                     <p>So, Are you ready?</p>
-                    <a onClick={(event) => {
+                    <button onClick={(event) => {
                             event.preventDefault()
                             props.renderInstruction()
                         }} 
@@ -23,7 +23,7 @@ export default function GameInstruction(props) {
                         href="#close"
                     >
                         READY!
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>

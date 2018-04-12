@@ -21,7 +21,7 @@ export default function Navigation(props) {
                 <li>
                     <a 
                         className="new" 
-                        href="response"
+                        href="new"
                         onClick={(event) => {
                             event.preventDefault()
                             props.whenGameRestarts()
